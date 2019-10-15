@@ -5,14 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest v2.x.x -->
+    <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+
     <title>Document</title>
     <style>
         :root {
             --main-bg-color: green;
+            --main-text-color: white;
         }
 
         .one {
-            color: white;
+            color: black;
+            color: var(--main-text-color);
             background-color: var(--main-bg-color);
             margin: 10px;
             display: inline-block;
@@ -27,5 +32,19 @@
         hello, this is example
         if color is <b>green</b> - all works!
     </div>
+    <button class="convertCss">convert css</button>
+
+
+    <script>
+        var button = document.querySelector('.convertCss');
+        button.addEventListener('click', convertCss);
+
+        function convertCss() {
+            console.log('converting...');
+            cssVars({
+                // Options...
+            });
+        }
+    </script>
 </body>
 </html>
